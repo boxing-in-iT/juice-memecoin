@@ -137,9 +137,12 @@ const Button = styled.button`
   transition: background 0.3s ease, transform 0.3s ease;
 
   @media (max-width: 64em) {
-    font-size: 20px;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
     padding: 0;
     font-weight: 400;
+    padding: 0;
   }
 
   &:hover {

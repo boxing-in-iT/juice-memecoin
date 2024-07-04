@@ -51,6 +51,8 @@ const Title = styled.h1`
   text-transform: uppercase;
   font-family: "Rubik Mono One", sans-serif;
   margin-bottom: 0;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff, /* Обводка текста белым цветом */ 0px 4px 4.7px #6a2800;
 
   @media (max-width: 40em) {
     font-size: 37px;

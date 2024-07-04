@@ -53,6 +53,7 @@ const Section = styled.section`
 
   @media (max-width: 40em) {
     min-height: 50vh;
+    margin-top: 5em;
   }
 `;
 
@@ -112,6 +113,14 @@ const Title = styled.h1`
   transform: rotate(5deg);
   color: #0ac416;
   font-family: "Rubik Mono One", sans-serif;
+
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff, /* Обводка текста белым цветом */ 0px 4px 4.7px #6a2800; /* Тень для каждой буквы */
+
+  /* text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;  */
+
+  /* box-shadow: 0px 4px 4.7px 0px #6a2800; */
 
   /* margin-bottom: 1em; */
   margin: 0;

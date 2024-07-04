@@ -114,6 +114,8 @@ const Title = styled.h1`
   text-transform: uppercase;
   transform: rotate(350deg);
   color: #0ac416;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff, /* Обводка текста белым цветом */ 0px 4px 4.7px #6a2800;
 
   @media (max-width: 40em) {
     font-size: 57px;

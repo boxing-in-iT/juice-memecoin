@@ -76,6 +76,8 @@ const Title = styled.h1`
   font-family: "Rubik Mono One", sans-serif;
   text-transform: uppercase;
   margin: 0 auto;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff, /* Обводка текста белым цветом */ 0px 4px 4.7px #6a2800;
 
   &:nth-child(2) {
     margin-top: 1.5em;
