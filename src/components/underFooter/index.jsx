@@ -49,6 +49,10 @@ const SubTitle = styled.p`
   font-size: 20px;
   font-weight: 500;
   font-family: "Rubik", sans-serif;
+
+  @media (max-width: 64em) {
+    text-align: center;
+  }
 `;
 
 const UnderFooter = () => {

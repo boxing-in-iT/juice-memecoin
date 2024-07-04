@@ -1,5 +1,5 @@
 import React from "react";
-import welcomeJuice from "../../assets/welcomeJuice.png";
+import welcomeJuice from "../../assets/welcome.png";
 import styled from "styled-components";
 
 import tg from "../../assets/socialLinks/tg.svg";
@@ -37,6 +37,7 @@ const Container = styled.div`
   @media (max-width: 64em) {
     width: 100%;
     flex-direction: column;
+    margin-top: 2em;
 
     & > *:last-child {
       width: 80%;

@@ -5,6 +5,7 @@ import juice from "../../assets/juicenomics/juice.png";
 import copyIcon from "../../assets/Copy.svg";
 
 const Section = styled.section`
+  margin-top: 30vh;
   position: relative;
   min-height: 100vh;
   width: 100%;
@@ -105,12 +106,20 @@ const SmartTitle = styled.p`
   font-weight: 400;
   font-family: "Rubik Mono One", sans-serif;
   text-transform: uppercase;
+
+  @media (max-width: 40em) {
+    text-align: center;
+  }
 `;
 
 const Address = styled.p`
   font-size: 24px;
   font-weight: 400;
   font-family: "Rubik", sans-serif;
+
+  @media (max-width: 40em) {
+    font-size: 16px;
+  }
 `;
 
 const CopyButton = styled.button`
@@ -124,6 +133,27 @@ const CopyButton = styled.button`
   font-weight: 600;
   font-family: "Rubik", sans-serif;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @media (max-width: 64em) {
+    width: 105px !important;
+    height: 35px !important;
+    font-size: 18px;
+  }
+
+  img {
+    margin-right: 8px;
+    @media (max-width: 64em) {
+      width: 16px;
+      height: 16px;
+    }
+  }
 `;
 
 const Juicenomics = () => {
@@ -131,9 +161,7 @@ const Juicenomics = () => {
     const address = "RDficDZuhLo4NxZKMJJ9xfQ1yCY247k7UCPgzwKsoMC";
     navigator.clipboard
       .writeText(address)
-      .then(() => {
-        alert("Address copied to clipboard!");
-      })
+      .then(() => {})
       .catch((err) => {
         console.error("Failed to copy: ", err);
       });
@@ -147,11 +175,13 @@ const Juicenomics = () => {
         <Numbers>777.777.777</Numbers>
         <SubTitle>
           No Taxes, No Bullshit. It’s that simple.
-          <br /> LP tokens are burnt, and contract ownership is renounced. 
+          <br /> LP tokens are burnt, and contract ownership is renounced.
         </SubTitle>
         <SmartTitle>smart contract adress:</SmartTitle>
         <Address>RDficDZuhLo4NxZKMJJ9xfQ1yCY247k7UCPgzwKsoMC</Address>
-        <CopyButton onClick={copyToClipboard}>Copy</CopyButton>
+        <CopyButton onClick={copyToClipboard}>
+          Copy <img src={copyIcon} alt="copy icon" />
+        </CopyButton>
       </Container>
       <BgImage src={juice} />
     </Section>

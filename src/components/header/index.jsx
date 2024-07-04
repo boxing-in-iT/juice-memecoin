@@ -196,7 +196,7 @@ const Header = () => {
         </HamburgerMenu>
         <Logo>$Juice</Logo>
         <Menu click={click}>
-          <CloseMenu onClick={() => setClick(false)}>
+          <CloseMenu className="mobile" onClick={() => setClick(false)}>
             <div />
             <div />
           </CloseMenu>
