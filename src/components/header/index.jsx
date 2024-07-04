@@ -6,8 +6,9 @@ import logoMobile from "../../assets/logoMobile.svg";
 
 const HeaderWrapper = styled.header`
   width: 100vw;
-  z-index: 1000;
+  /* z-index: 1000; */
   padding-top: 2%;
+  overflow-x: hidden;
 `;
 
 const NavBar = styled.nav`
@@ -29,6 +30,8 @@ const NavBar = styled.nav`
 
   @media (max-width: 64em) {
     gap: 1rem;
+    width: 90%;
+    padding: 0;
     .desktop {
       display: none;
     }
@@ -52,7 +55,12 @@ const NavBar = styled.nav`
 //     /* основная тень */ 10px 10px 0px rgba(0, 0, 0, 0.15); /* дополнительная тень */
 // `;
 
-const Logo = styled.img``;
+const Logo = styled.img`
+  width: 25%;
+  @media (max-width: 64em) {
+    width: 50%;
+  }
+`;
 
 const Menu = styled.ul`
   display: flex;

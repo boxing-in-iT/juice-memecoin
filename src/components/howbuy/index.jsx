@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import bgOrange from "../../assets/howOrange.png";
 import orangeList from "../../assets/orange.svg"; // Assuming this is your orange slice icon
@@ -26,14 +26,21 @@ const Section = styled.section`
     right: 30%;
   }
 
+  .mobile {
+    display: none;
+  }
+
   @media (max-width: 64em) {
-    min-height: 120vh;
+    min-height: 60vh;
+    .mobile {
+      display: block;
+    }
   }
 `;
 
 const Container = styled.div`
   position: relative;
-  width: 75%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -59,7 +66,7 @@ const TitleContainer = styled.div`
   margin: 0 auto;
   width: 50%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -68,6 +75,7 @@ const Title = styled.h1`
   font-weight: 400;
   font-family: "Rubik Mono One", sans-serif;
   text-transform: uppercase;
+  margin: 0 auto;
 
   &:nth-child(2) {
     margin-top: 1.5em;
@@ -78,7 +86,7 @@ const Title = styled.h1`
   }
 
   @media (max-width: 40em) {
-    font-size: 37px;
+    font-size: 47px;
   }
 `;
 
@@ -100,8 +108,11 @@ const HowBuyContainer = styled.div`
   padding: 20px; /* Added padding for content spacing */
 
   @media (max-width: 64em) {
-    width: 290px;
+    width: 90%;
+    height: auto;
     /* height: 273px; */
+    margin: 0 auto;
+    margin-top: 2em;
   }
 `;
 
@@ -231,11 +242,14 @@ const AnimateBg = styled(motion.img)`
     top: 100%;
     width: 45%;
   } */
-  @media (max-width: 1450px) {
-    top: 105%;
-    width: 60%;
-    /* display: none; */
+  @media (max-width: 64em) {
+    display: none;
   }
+`;
+
+const MobileAnimate = styled(motion.img)`
+  align-self: self-end;
+  width: 50%;
 `;
 
 const ImageBgdots = styled.img`
@@ -259,6 +273,8 @@ const HowToBuy = () => {
   const [copied, setCopied] = useState(false);
   const ref = React.useRef(null);
   const isInView = useInView(ref);
+  const refM = React.useRef(null);
+  const isInNewM = useInView(refM);
 
   const copyToClipboard = () => {
     const address = "RDficDZuhLo4NxZKMJJ9xfQ1yCY247k7UCPgzwKsoMC";
@@ -309,7 +325,14 @@ const HowToBuy = () => {
       <CopyButton copied={copied} onClick={copyToClipboard}>
         {copied ? "Copied!" : "Copy"} <img src={copyIcon} alt="copy icon" />
       </CopyButton>
-
+      <MobileAnimate
+        src={bgOrange}
+        className="mobile"
+        initial={{ x: "100%" }}
+        animate={isInNewM ? { x: 0 } : { x: "100%" }}
+        transition={{ duration: 1 }}
+        ref={refM}
+      />
       <AnimateBg
         src={bgOrange}
         initial={{ x: "100%" }}

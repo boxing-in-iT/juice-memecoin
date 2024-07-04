@@ -13,7 +13,6 @@ const Section = styled.section`
   color: #ffffff;
   @media (max-width: 1450px) {
     min-height: 50vh;
-    margin-top: 40vh;
   }
 `;
 

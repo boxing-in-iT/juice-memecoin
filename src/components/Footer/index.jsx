@@ -8,6 +8,10 @@ const FooterWrapper = styled.footer`
   justify-content: center;
   align-items: center;
   padding: 10px;
+  @media (max-width: 64em) {
+    border-top: 8px solid white;
+    padding: 0;
+  }
 `;
 
 const FooterContent = styled.div``;
@@ -16,6 +20,10 @@ const SubTitle = styled.p`
   font-size: 14px;
   font-weight: 700;
   color: white;
+  @media (max-width: 64em) {
+    font-size: 16px;
+    text-align: center;
+  }
 `;
 
 const Footer = () => {
