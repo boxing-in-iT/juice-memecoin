@@ -1,0 +1,19 @@
+<svg width="63" height="50" viewBox="0 0 63 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_376_218)">
+<circle cx="53.8082" cy="25.8705" r="9.12925" transform="rotate(90 53.8082 25.8705)" fill="#FF8840"/>
+<circle cx="19.2635" cy="44.1281" r="3.52558" transform="rotate(90 19.2635 44.1281)" fill="#FF8840"/>
+<circle cx="20.6528" cy="8.8013" r="1.39017" transform="rotate(90 20.6528 8.8013)" fill="#FF8840"/>
+<circle cx="3.7088" cy="4.05292" r="3.52558" transform="rotate(90 3.7088 4.05292)" fill="#FF8840"/>
+</g>
+<defs>
+<filter id="filter0_d_376_218" x="0.183594" y="0.527344" width="62.7539" height="48.6882" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1.56218"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_376_218"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_376_218" result="shape"/>
+</filter>
+</defs>
+</svg>

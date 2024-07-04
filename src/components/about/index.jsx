@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import photo from "../../assets/aboutPhoto.png";
 
+import dots from "../../assets/juiceDots.svg";
+import mobileDots from "../../assets/mobileDots.svg";
+
 const Section = styled.section`
   min-height: 100vh;
   width: 100%;
@@ -11,6 +14,41 @@ const Section = styled.section`
   align-items: center;
   position: relative;
   color: #ffffff;
+
+  .img1 {
+    top: 25%;
+    left: 5%;
+  }
+
+  .img2 {
+    top: 65%;
+    left: 10%;
+  }
+
+  .img3 {
+    top: 20%;
+    right: 7%;
+  }
+
+  .img4 {
+    top: 70%;
+    right: 15%;
+  }
+
+  .img5 {
+    top: 40%;
+    right: 0;
+  }
+
+  .img6 {
+    top: 50%;
+    left: 5%;
+  }
+
+  .img7 {
+    top: 30%;
+    left: 6%;
+  }
 
   @media (max-width: 40em) {
     min-height: 50vh;
@@ -102,6 +140,23 @@ const Image = styled.img`
   }
 `;
 
+const ImageBgdots = styled.img`
+  position: absolute;
+  @media (max-width: 64em) {
+    display: none;
+  }
+`;
+
+const MobileImgDots = styled.img`
+  /* display: none; */
+  /* width: 100%; */
+  position: absolute;
+  @media (max-width: 64em) {
+    position: absolute;
+    display: block;
+  }
+`;
+
 const About = () => {
   return (
     <Section>
@@ -118,7 +173,17 @@ const About = () => {
             crypto newbie, $Juice is here to add some zest to your portfolio.
           </SubTitle>
         </Box>
+
+        {/*  */}
+        {/* <MobileImgDots className="img5" src={mobileDots} />
+        <MobileImgDots className="img6" src={mobileDots} />
+        <MobileImgDots className="img7" src={mobileDots} />
+        <MobileImgDots className="img8" src={mobileDots} /> */}
       </Container>
+      <ImageBgdots className="img1" src={dots} />
+      <ImageBgdots className="img2" src={dots} />
+      <ImageBgdots className="img3" src={dots} />
+      <ImageBgdots className="img4" src={dots} />
     </Section>
   );
 };

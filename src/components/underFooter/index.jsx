@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Section = styled.section`
   position: relative;
-  min-height: 100vh;
+  min-height: 35vh;
   width: 100%;
   display: flex;
   justify-content: center;
