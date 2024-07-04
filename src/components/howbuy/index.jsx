@@ -180,12 +180,12 @@ const SmartTitle = styled.p`
 `;
 
 const Address = styled.p`
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 400;
   font-family: "Rubik", sans-serif;
 
   @media (max-width: 40em) {
-    font-size: 13px;
+    font-size: 16px;
   }
 `;
 
@@ -294,7 +294,7 @@ const HowToBuy = () => {
   };
 
   return (
-    <Section>
+    <Section id="how">
       <TitleContainer>
         <Title>How</Title>
         <Title>to</Title>

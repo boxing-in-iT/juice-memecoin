@@ -3,23 +3,20 @@ import styled from "styled-components";
 
 import logo from "../../assets/$Juice.svg";
 import logoMobile from "../../assets/logoMobile.svg";
+import Modal from "../modal";
+import copyIcon from "../../assets/Copy.svg";
 
 const HeaderWrapper = styled.header`
   width: 100vw;
-  /* z-index: 1000; */
   padding-top: 2%;
   overflow-x: hidden;
 `;
 
 const NavBar = styled.nav`
   width: 75%;
-  /* min-height: 10vh; */
-  /* border-radius: 10px; */
-  /* background: #ff8c46; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* box-shadow: 0px 4px 0px 0px #00000040; */
   padding: 0px 50px;
   height: ${(props) => props.theme.navHeight};
   margin: 0 auto;
@@ -41,19 +38,6 @@ const NavBar = styled.nav`
     }
   }
 `;
-
-// const Logo = styled.h1`
-//   background-image: linear-gradient(118.98deg, #ff6000 32.18%, #eb6413 64.14%);
-//   -webkit-background-clip: text;
-//   background-clip: text;
-//   color: transparent;
-//   text-transform: uppercase;
-//   font-family: "Rubik Mono One", sans-serif;
-//   font-size: 32px;
-//   font-weight: 400;
-//   text-shadow: 5px 5px 0px #d96418,
-//     /* основная тень */ 10px 10px 0px rgba(0, 0, 0, 0.15); /* дополнительная тень */
-// `;
 
 const Logo = styled.img`
   width: 25%;
@@ -79,7 +63,6 @@ const Menu = styled.ul`
     height: 100vh;
     z-index: 10000;
     background: #ff8c46;
-    /* background-color: black; */
     border-radius: 15px;
     transform: ${(props) =>
       props.click ? "translateY(0)" : "translateY(100%)"};
@@ -142,7 +125,6 @@ const Button = styled.button`
     font-size: 18px;
     padding: 0;
     font-weight: 400;
-    padding: 0;
   }
 
   &:hover {
@@ -207,8 +189,170 @@ const CloseMenu = styled.div`
   }
 `;
 
+const Title = styled.h1`
+  color: #fff;
+  font-size: 50px;
+  font-weight: 400;
+  font-family: "Rubik Mono One", sans-serif;
+  text-transform: uppercase;
+  margin: 0 auto;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff, /* Обводка текста белым цветом */ 0px 4px 4.7px #6a2800;
+
+  @media (max-width: 64em) {
+    font-size: 30px;
+  }
+`;
+
+const HowBuyContainer = styled.div`
+  background: #e05500;
+  box-shadow: 0px 6px 0px 0px #00000040;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 25px;
+  box-shadow: 0px 6px 0px 0px #00000040;
+  padding: 20px; /* Added padding for content spacing */
+
+  @media (max-width: 64em) {
+    width: 90%;
+    height: auto;
+    /* height: 273px; */
+    margin: 0 auto;
+    margin-top: 2em;
+  }
+`;
+
+const HowList = styled.div`
+  font-size: 28px;
+  height: 100%;
+  font-weight: 400;
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  color: #ffffff;
+
+  & > img {
+    width: 95px; /* Adjust size as needed */
+    margin-right: 10px;
+    position: relative;
+  }
+
+  & > img::after {
+    content: attr(data-number);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+  }
+
+  @media (max-width: 40em) {
+    font-size: 18px;
+
+    & > img {
+      width: 60px; /* Adjust size as needed */
+      margin-right: 10px;
+      position: relative;
+    }
+  }
+`;
+
+const SmartTitle = styled.p`
+  font-size: 32px;
+  font-weight: 400;
+  font-family: "Rubik Mono One", sans-serif;
+  text-transform: uppercase;
+
+  @media (max-width: 40em) {
+    text-align: center;
+  }
+`;
+
+const Address = styled.p`
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Rubik", sans-serif;
+  color: white;
+
+  @media (max-width: 40em) {
+    font-size: 14px;
+  }
+`;
+
+const CopyButton = styled.button`
+  width: 174px;
+  height: 59px;
+  border: none;
+  border-radius: 18px;
+  background: ${(props) => (props.copied ? "#4CAF50" : "#ffffff")};
+  color: ${(props) => (props.copied ? "#ffffff" : "#ee7e3c")};
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Rubik", sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, color 0.3s;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @media (max-width: 64em) {
+    width: 105px !important;
+    height: 35px !important;
+    font-size: 18px;
+  }
+
+  img {
+    margin-right: 8px;
+    @media (max-width: 64em) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+`;
+
 const Header = () => {
   const [click, setClick] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const copyToClipboard = () => {
+    const address = "RDficDZuhLo4NxZKMJJ9xfQ1yCY247k7UCPgzwKsoMC";
+    navigator.clipboard
+      .writeText(address)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => {
+          setCopied(false);
+        }, 2000); // Сбрасываем состояние через 2 секунды
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  };
+
+  const scrollTo = (id) => {
+    let element = document.getElementById(id);
+
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+
+    setClick(!click);
+  };
+
   return (
     <HeaderWrapper>
       <NavBar>
@@ -221,7 +365,6 @@ const Header = () => {
           <div />
           <div />
         </HamburgerMenu>
-        {/* <Logo>$Juice</Logo> */}
         <Logo className="desktop" src={logo} />
         <Logo className="mobile" src={logoMobile} />
         <Menu click={click}>
@@ -229,13 +372,32 @@ const Header = () => {
             <div />
             <div />
           </CloseMenu>
-          <MenuItems>About</MenuItems>
-          <MenuItems>How to buy</MenuItems>
-          <MenuItems>JuiceNomics</MenuItems>
-          <MenuItems>Roadmaps</MenuItems>
+          <MenuItems onClick={() => scrollTo("about")}>About</MenuItems>
+          <MenuItems onClick={() => scrollTo("how")}>How to buy</MenuItems>
+          <MenuItems onClick={() => scrollTo("tokenomic")}>
+            JuiceNomics
+          </MenuItems>
+          <MenuItems onClick={() => scrollTo("roadmap")}>Roadmaps</MenuItems>
         </Menu>
-        <Button>Pre-sale</Button>
+        <Button onClick={() => setShowModal(true)}>Pre-sale</Button>
       </NavBar>
+      <Modal show={showModal} handleClose={() => setShowModal(false)}>
+        <Title>How to buy?</Title>
+        <HowBuyContainer>
+          <HowList>1. Create a crypto wallet (e.g., MetaMask).</HowList>
+          <HowList>2. Purchase some ETH or BNB on a trusted exchange.</HowList>
+          <HowList>
+            3. Connect your wallet to a decentralized exchange (DEX) like
+            Uniswap or PancakeSwap. Swap your ETH or BNB for $Juice.
+          </HowList>
+          <HowList>4. Enjoy the refreshing benefits of holding $Juice!</HowList>
+        </HowBuyContainer>
+        <SmartTitle>smart contract adress:</SmartTitle>
+        <Address>RDficDZuhLo4NxZKMJJ9xfQ1yCY247k7UCPgzwKsoMC</Address>
+        <CopyButton copied={copied} onClick={copyToClipboard}>
+          {copied ? "Copied!" : "Copy"} <img src={copyIcon} alt="copy icon" />
+        </CopyButton>
+      </Modal>
     </HeaderWrapper>
   );
 };

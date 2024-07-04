@@ -188,7 +188,7 @@ const MobileImgDots = styled.img`
 
 const RoadMap = () => {
   return (
-    <Section>
+    <Section id="roadmap">
       <Title>Roadmap</Title>
       <Container>
         <Box>

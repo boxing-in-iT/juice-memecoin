@@ -108,7 +108,7 @@ const BgImage = styled.img`
 
 const Juicenomics = () => {
   return (
-    <Section>
+    <Section id="tokenomic">
       <Container>
         <Title>
           <span style={{ color: "#0AC416" }}>Juice</span>nomics

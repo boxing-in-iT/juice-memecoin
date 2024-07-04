@@ -173,7 +173,7 @@ const About = () => {
   const isInView = useInView(ref);
 
   return (
-    <Section>
+    <Section id="about">
       <Container>
         <Box>
           <Image
