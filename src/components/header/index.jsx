@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import logo from "../../assets/$Juice.svg";
+
 const HeaderWrapper = styled.header`
   width: 100vw;
   z-index: 1000;
@@ -9,6 +11,7 @@ const HeaderWrapper = styled.header`
 
 const NavBar = styled.nav`
   width: 75%;
+  min-height: 10vh;
   border-radius: 10px;
   background: #ff8c46;
   display: flex;
@@ -35,17 +38,20 @@ const NavBar = styled.nav`
   }
 `;
 
-const Logo = styled.h1`
-  background-image: linear-gradient(118.98deg, #ff6000 32.18%, #eb6413 64.14%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-transform: uppercase;
-  font-family: "Rubik Mono One", sans-serif;
-  font-size: 32px;
-  font-weight: 400;
-  text-shadow: 4px 3px 0px 0px #6400;
-`;
+// const Logo = styled.h1`
+//   background-image: linear-gradient(118.98deg, #ff6000 32.18%, #eb6413 64.14%);
+//   -webkit-background-clip: text;
+//   background-clip: text;
+//   color: transparent;
+//   text-transform: uppercase;
+//   font-family: "Rubik Mono One", sans-serif;
+//   font-size: 32px;
+//   font-weight: 400;
+//   text-shadow: 5px 5px 0px #d96418,
+//     /* основная тень */ 10px 10px 0px rgba(0, 0, 0, 0.15); /* дополнительная тень */
+// `;
+
+const Logo = styled.img``;
 
 const Menu = styled.ul`
   display: flex;
@@ -92,7 +98,7 @@ const MenuItems = styled.li`
     display: block;
     width: 0%;
     height: 2px;
-    background: #fef22b;
+    background: #eb6413;
     transition: width 0.3s ease;
   }
   &:hover::after {
@@ -109,16 +115,24 @@ const Button = styled.button`
   background: #e91334;
   border: 1px solid #000000;
   border-radius: 7px;
-  padding: 10px, 20px, 10px, 20px;
+  padding: 10px 20px;
   text-transform: uppercase;
   color: white;
   font-size: 20px;
   font-weight: 400;
   width: 159px;
   height: 44px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background: #d1102b;
+    transform: scale(1.05);
+  }
 
   @media (max-width: 64em) {
     font-size: 12px;
+    padding: 0;
     font-family: "Rubik One", sans-serif;
     font-weight: 400;
   }
@@ -194,7 +208,8 @@ const Header = () => {
           <div />
           <div />
         </HamburgerMenu>
-        <Logo>$Juice</Logo>
+        {/* <Logo>$Juice</Logo> */}
+        <Logo src={logo} />
         <Menu click={click}>
           <CloseMenu className="mobile" onClick={() => setClick(false)}>
             <div />
