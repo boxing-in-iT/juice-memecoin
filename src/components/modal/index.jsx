@@ -12,12 +12,11 @@ const ModalWrapper = styled.div`
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 25px;
 `;
 
 const ModalContent = styled.div`
   position: relative;
-  background: #ff8c46;
+  background: #e05500;
 
   /* margin: 15% auto; */
   margin: 0 auto;
