@@ -59,7 +59,6 @@ const Menu = styled.ul`
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
     margin: 0 auto;
     width: 50vw;
     height: 25vh;
@@ -71,7 +70,8 @@ const Menu = styled.ul`
     transition: all 0.3s ease;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 10em;
+    padding-top: 5em;
+    padding-right: 2em;
     gap: 1em;
     align-items: flex-start;
     box-shadow: 120px black;
@@ -102,7 +102,8 @@ const MenuItems = styled.li`
   }
 
   @media (max-width: 64em) {
-    font-size: 24px;
+    font-size: 21px;
+    margin-top: 3%;
     font-weight: 600;
   }
 `;

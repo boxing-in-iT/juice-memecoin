@@ -161,7 +161,7 @@ const SocialLinks = styled.div`
 
 const SocialImage = styled.img`
   cursor: pointer;
-  opacity: 0.6; /* Начальная прозрачность */
+  opacity: 0.7; /* Начальная прозрачность */
   transition: opacity 0.3s ease; /* Плавное изменение прозрачности */
 
   &:hover {
