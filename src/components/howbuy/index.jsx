@@ -39,11 +39,27 @@ const Container = styled.div`
   }
 `;
 
+const TitleContainer = styled.div`
+  margin: 0 auto;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 const Title = styled.h1`
   font-size: 100px;
   font-weight: 400;
   font-family: "Rubik Mono One", sans-serif;
   text-transform: uppercase;
+
+  &:nth-child(2) {
+    margin-top: 1.5em;
+  }
+
+  &:nth-child(3) {
+    margin-top: 2.5em;
+  }
 
   @media (max-width: 40em) {
     font-size: 37px;
@@ -51,7 +67,7 @@ const Title = styled.h1`
 `;
 
 const TitleSpan = styled.span`
-  margin-top: 2%;
+  /* margin-top: 2em; */
 `;
 
 const HowBuyContainer = styled.div`
@@ -120,9 +136,12 @@ const BgIamge = styled.img`
 const HowToBuy = () => {
   return (
     <Section>
-      <Title>
-        How <TitleSpan>to</TitleSpan> <TitleSpan>buy?</TitleSpan>
-      </Title>
+      <TitleContainer>
+        <Title>How</Title>
+        <Title>to</Title>
+        <Title>buy?</Title>
+      </TitleContainer>
+
       <Container>
         <HowBuyContainer>
           <HowList>
