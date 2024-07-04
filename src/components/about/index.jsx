@@ -4,6 +4,7 @@ import photo from "../../assets/aboutPhoto.png";
 
 import dots from "../../assets/juiceDots.svg";
 import mobileDots from "../../assets/mobileDots.svg";
+import { inView, motion, useInView } from "framer-motion";
 
 const Section = styled.section`
   min-height: 100vh;
@@ -131,7 +132,7 @@ const SubTitle = styled.p`
   }
 `;
 
-const Image = styled.img`
+const Image = styled(motion.img)`
   width: 500.14px;
   height: 669.5px;
 
@@ -159,11 +160,21 @@ const MobileImgDots = styled.img`
 `;
 
 const About = () => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref);
+
   return (
     <Section>
       <Container>
         <Box>
-          <Image src={photo} alt="juice photo" />
+          <Image
+            src={photo}
+            alt="juice photo"
+            initial={{ x: "-100%" }}
+            animate={isInView ? { x: 0 } : { x: "-100%" }}
+            transition={{ duration: 1 }}
+            ref={ref}
+          />
         </Box>
         <Box>
           <Title>About</Title>

@@ -4,7 +4,6 @@ import styled, { keyframes } from "styled-components";
 import juice from "../../assets/juicenomics/juice.png";
 
 const Section = styled.section`
-  margin-top: 30vh;
   position: relative;
   min-height: 100vh;
   width: 100%;
@@ -15,6 +14,7 @@ const Section = styled.section`
   color: #ffffff;
   @media (max-width: 40em) {
     min-height: 50vh;
+    margin-top: 30vh;
   }
 `;
 

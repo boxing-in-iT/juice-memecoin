@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
 import bgOrange from "../../assets/howOrange.png";
 import orangeList from "../../assets/orange.svg"; // Assuming this is your orange slice icon
 import copyIcon from "../../assets/Copy.svg";
-
 import dots from "../../assets/juiceDots.svg";
 import mobileDots from "../../assets/mobileDots.svg";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const Section = styled.section`
   position: relative;
@@ -202,7 +200,7 @@ const CopyButton = styled.button`
   }
 `;
 
-const BgIamge = styled(motion.img)`
+const BgIamge = styled.img`
   position: absolute;
   right: 0;
   top: 30%;
@@ -213,12 +211,18 @@ const BgIamge = styled(motion.img)`
   }
 `;
 
-const ImageBgdots = styled.img`
+const AnimateBg = styled(motion.img)`
   position: absolute;
+  right: 0;
+  top: 30%;
   @media (max-width: 64em) {
-    display: none;
+    top: 100%;
+    width: 70%;
+    /* display: none; */
   }
 `;
+
+const ImageBgdots = styled.img``;
 
 const MobileImgDots = styled.img`
   /* display: none; */
@@ -232,6 +236,8 @@ const MobileImgDots = styled.img`
 
 const HowToBuy = () => {
   const [copied, setCopied] = useState(false);
+  const ref = React.useRef(null);
+  const isInView = useInView(ref);
 
   const copyToClipboard = () => {
     const address = "RDficDZuhLo4NxZKMJJ9xfQ1yCY247k7UCPgzwKsoMC";
@@ -247,6 +253,7 @@ const HowToBuy = () => {
         console.error("Failed to copy: ", err);
       });
   };
+
   return (
     <Section>
       <TitleContainer>
@@ -281,7 +288,14 @@ const HowToBuy = () => {
       <CopyButton copied={copied} onClick={copyToClipboard}>
         {copied ? "Copied!" : "Copy"} <img src={copyIcon} alt="copy icon" />
       </CopyButton>
-      <BgIamge src={bgOrange} />
+
+      <AnimateBg
+        src={bgOrange}
+        initial={{ x: "100%" }}
+        animate={isInView ? { x: 0 } : { x: "100%" }}
+        transition={{ duration: 1 }}
+        ref={ref}
+      />
       <ImageBgdots className="img1" src={dots} />
     </Section>
   );

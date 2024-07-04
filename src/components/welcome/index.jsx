@@ -9,6 +9,7 @@ import youtube from "../../assets/socialLinks/youtube.svg";
 import dots from "../../assets/juiceDots.svg";
 import greenDots from "../../assets/juiceGreenDots.svg";
 import mobileDots from "../../assets/mobileDots.svg";
+import { inView, motion, useInView } from "framer-motion";
 
 const Section = styled.section`
   min-height: 100vh;
@@ -153,7 +154,7 @@ const SocialImage = styled.img`
   }
 `;
 
-const Image = styled.img`
+const Image = styled(motion.img)`
   @media (max-width: 40em) {
     width: 401px;
     height: 401px;
@@ -178,11 +179,20 @@ const MobileImgDots = styled.img`
 `;
 
 const Welcome = () => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref);
+
   return (
     <Section>
       <Container>
         <Box>
-          <Image src={welcomeJuice} />
+          <Image
+            src={welcomeJuice}
+            initial={{ y: "100%" }}
+            animate={isInView ? { y: 0 } : { y: "100%" }}
+            transition={{ duration: 1 }}
+            ref={ref}
+          />
         </Box>
         <Box>
           <SubTitle>
