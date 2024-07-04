@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import logo from "../../assets/$Juice.svg";
+import logoMobile from "../../assets/logoMobile.svg";
 
 const HeaderWrapper = styled.header`
   width: 100vw;
@@ -11,17 +12,17 @@ const HeaderWrapper = styled.header`
 
 const NavBar = styled.nav`
   width: 75%;
-  min-height: 10vh;
-  border-radius: 10px;
-  background: #ff8c46;
+  /* min-height: 10vh; */
+  /* border-radius: 10px; */
+  /* background: #ff8c46; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 4px 0px 0px #00000040;
+  /* box-shadow: 0px 4px 0px 0px #00000040; */
   padding: 0px 50px;
   height: ${(props) => props.theme.navHeight};
   margin: 0 auto;
-
+  margin-top: 2em;
   .mobile {
     display: none;
   }
@@ -81,6 +82,7 @@ const Menu = styled.ul`
     gap: 1em;
     align-items: flex-start;
     box-shadow: 120px black;
+    display: ${(props) => (props.click ? "block" : "none")};
   }
 `;
 
@@ -97,7 +99,7 @@ const MenuItems = styled.li`
     content: " ";
     display: block;
     width: 0%;
-    height: 2px;
+    height: 4px;
     background: #0ac416;
     transition: width 0.3s ease;
   }
@@ -209,7 +211,8 @@ const Header = () => {
           <div />
         </HamburgerMenu>
         {/* <Logo>$Juice</Logo> */}
-        <Logo src={logo} />
+        <Logo className="desktop" src={logo} />
+        <Logo className="mobile" src={logoMobile} />
         <Menu click={click}>
           <CloseMenu className="mobile" onClick={() => setClick(false)}>
             <div />

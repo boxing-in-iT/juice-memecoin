@@ -9,7 +9,7 @@ import { motion, useInView } from "framer-motion";
 
 const Section = styled.section`
   position: relative;
-  min-height: 100vh;
+  min-height: 80vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,8 @@ const Section = styled.section`
   align-items: center;
   position: relative;
   color: #ffffff;
+
+  overflow-x: hidden !important;
 
   .img1 {
     transform: rotate(90deg);
@@ -145,6 +147,7 @@ const HowList = styled.div`
 // `;
 
 const SmartTitle = styled.p`
+  margin-top: 120px;
   font-size: 32px;
   font-weight: 400;
   font-family: "Rubik Mono One", sans-serif;
@@ -161,7 +164,7 @@ const Address = styled.p`
   font-family: "Rubik", sans-serif;
 
   @media (max-width: 40em) {
-    font-size: 16px;
+    font-size: 13px;
   }
 `;
 
@@ -215,14 +218,24 @@ const AnimateBg = styled(motion.img)`
   position: absolute;
   right: 0;
   top: 30%;
-  @media (max-width: 64em) {
+
+  /* @media (max-width: 64em) {
     top: 100%;
-    width: 70%;
+    width: 45%;
+  } */
+  @media (max-width: 1450px) {
+    top: 105%;
+    width: 60%;
     /* display: none; */
   }
 `;
 
-const ImageBgdots = styled.img``;
+const ImageBgdots = styled.img`
+  position: absolute;
+  @media (max-width: 64em) {
+    display: none;
+  }
+`;
 
 const MobileImgDots = styled.img`
   /* display: none; */

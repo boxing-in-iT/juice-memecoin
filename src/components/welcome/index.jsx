@@ -1,5 +1,6 @@
 import React from "react";
 import welcomeJuice from "../../assets/welcome.png";
+import welcomeMobile from "../../assets/mobileWelcome.png";
 import styled from "styled-components";
 
 import tg from "../../assets/socialLinks/tg.svg";
@@ -26,26 +27,26 @@ const Section = styled.section`
 
   .img1 {
     width: 8%;
-    top: 25%;
+    top: 5%;
     left: 20%;
   }
 
   .img2 {
     width: 8%;
     top: 50%;
-    left: 30%;
+    left: 10%;
   }
 
   .img3 {
     width: 8%;
     top: 30%;
-    right: 20%;
+    right: 10%;
   }
 
   .img4 {
     width: 8%;
     top: 50%;
-    right: 30%;
+    right: 5%;
   }
 
   .img5 {
@@ -61,6 +62,20 @@ const Section = styled.section`
   .img7 {
     top: 30%;
     left: 6%;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  @media (max-width: 64em) {
+    .mobile {
+      display: block;
+    }
+
+    .desktop {
+      display: none;
+    }
   }
 `;
 
@@ -155,9 +170,8 @@ const SocialImage = styled.img`
 `;
 
 const Image = styled(motion.img)`
-  @media (max-width: 40em) {
-    width: 401px;
-    height: 401px;
+  @media (max-width: 64em) {
+    width: 120%;
   }
 `;
 
@@ -187,8 +201,9 @@ const Welcome = () => {
       <Container>
         <Box>
           <Image
+            // className="desktop"
             src={welcomeJuice}
-            initial={{ y: "100%" }}
+            initial={{ y: "-100%" }}
             animate={isInView ? { y: 0 } : { y: "100%" }}
             transition={{ duration: 1 }}
             ref={ref}

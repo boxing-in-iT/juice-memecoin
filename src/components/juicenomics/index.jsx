@@ -1,20 +1,19 @@
-import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 
 import juice from "../../assets/juicenomics/juice.png";
 
 const Section = styled.section`
   position: relative;
-  min-height: 100vh;
+  min-height: 70vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   color: #ffffff;
-  @media (max-width: 40em) {
+  @media (max-width: 1450px) {
     min-height: 50vh;
-    margin-top: 30vh;
+    margin-top: 40vh;
   }
 `;
 
@@ -22,7 +21,6 @@ const Container = styled.div`
   position: relative;
   width: 75%;
   margin: 0 auto;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,6 +51,7 @@ const Title = styled.h1`
   font-weight: 400;
   text-transform: uppercase;
   font-family: "Rubik Mono One", sans-serif;
+  margin-bottom: 0;
 
   @media (max-width: 40em) {
     font-size: 37px;
@@ -63,6 +62,8 @@ const Numbers = styled.p`
   font-size: 36px;
   font-weight: 400;
   font-family: "Rubik Mono One", sans-serif;
+  margin: 0;
+  margin-top: 1%;
   @media (max-width: 40em) {
     font-size: 24px;
   }
@@ -72,6 +73,8 @@ const Supply = styled.p`
   font-size: 32px;
   font-weight: 400;
   font-family: "Rubik", sans-serif;
+  margin: 0;
+  margin-top: 4%;
 
   @media (max-width: 40em) {
     font-size: 19px;
@@ -83,6 +86,8 @@ const SubTitle = styled.p`
   font-weight: 400;
   font-family: "Rubik", sans-serif;
   text-align: center;
+  margin: 0;
+  margin-top: 3%;
 
   @media (max-width: 40em) {
     font-size: 18px;
