@@ -7,6 +7,7 @@ import copyIcon from "../../assets/Copy.svg";
 
 import dots from "../../assets/juiceDots.svg";
 import mobileDots from "../../assets/mobileDots.svg";
+import { motion } from "framer-motion";
 
 const Section = styled.section`
   position: relative;
@@ -134,16 +135,16 @@ const HowList = styled.div`
   }
 `;
 
-const BgIamge = styled.img`
-  position: absolute;
-  right: 0;
-  top: 30%;
+// const BgIamge = styled.img`
+//   position: absolute;
+//   right: 0;
+//   top: 30%;
 
-  @media (max-width: 40em) {
-    width: 214px;
-    top: 100%;
-  }
-`;
+//   @media (max-width: 40em) {
+//     width: 214px;
+//     top: 100%;
+//   }
+// `;
 
 const SmartTitle = styled.p`
   font-size: 32px;
@@ -198,6 +199,17 @@ const CopyButton = styled.button`
       width: 16px;
       height: 16px;
     }
+  }
+`;
+
+const BgIamge = styled(motion.img)`
+  position: absolute;
+  right: 0;
+  top: 30%;
+
+  @media (max-width: 40em) {
+    width: 214px;
+    top: 100%;
   }
 `;
 
