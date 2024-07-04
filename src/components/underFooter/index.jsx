@@ -26,17 +26,17 @@ const Container = styled.div`
   align-items: center;
 
   @media (max-width: 64em) {
-    width: 85%;
+    width: 90%;
   }
 
-  @media (max-width: 64em) {
+  /* @media (max-width: 64em) {
     width: 100%;
     flex-direction: column;
 
     & > *:last-child {
       width: 80%;
     }
-  }
+  } */
 
   @media (max-width: 40em) {
     & > *:last-child {
@@ -52,6 +52,7 @@ const SubTitle = styled.p`
 
   @media (max-width: 64em) {
     text-align: center;
+    font-size: 18px;
   }
 `;
 
