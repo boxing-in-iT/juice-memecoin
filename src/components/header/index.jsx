@@ -128,17 +128,17 @@ const Button = styled.button`
   padding: 10px 20px;
   text-transform: uppercase;
   color: white;
-  font-size: 20px;
-  font-weight: bold;
-  width: 159px;
-  height: 44px;
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 21px;
+  font-weight: 900;
+  width: 200px;
+  height: 55px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
 
   @media (max-width: 64em) {
-    font-size: 12px;
+    font-size: 20px;
     padding: 0;
-    font-family: "Rubik One", sans-serif;
     font-weight: 400;
   }
 
