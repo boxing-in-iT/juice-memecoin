@@ -18,13 +18,16 @@ const Section = styled.section`
   position: relative;
   color: #ffffff;
 
-  overflow-x: hidden !important;
-
+  overflow-x: hidden;
   .img1 {
     transform: rotate(90deg);
     width: 7%;
     top: 30%;
     right: 30%;
+  }
+
+  @media (max-width: 64em) {
+    min-height: 120vh;
   }
 `;
 
@@ -40,15 +43,15 @@ const Container = styled.div`
   @media (max-width: 64em) {
     flex-direction: column;
 
-    & > *:last-child {
+    /* & > *:last-child {
       width: 80%;
-    }
+    } */
   }
 
   @media (max-width: 40em) {
-    & > *:last-child {
+    /* & > *:last-child {
       width: 90%;
-    }
+    } */
   }
 `;
 
@@ -95,6 +98,11 @@ const HowBuyContainer = styled.div`
   border-radius: 25px;
   box-shadow: 0px 6px 0px 0px #00000040;
   padding: 20px; /* Added padding for content spacing */
+
+  @media (max-width: 64em) {
+    width: 290px;
+    /* height: 273px; */
+  }
 `;
 
 const HowList = styled.div`
