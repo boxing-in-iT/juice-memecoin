@@ -7,6 +7,7 @@ import twitter from "../../assets/socialLinks/twitter.svg";
 import youtube from "../../assets/socialLinks/youtube.svg";
 
 import dots from "../../assets/juiceDots.svg";
+import greenDots from "../../assets/juiceGreenDots.svg";
 import mobileDots from "../../assets/mobileDots.svg";
 
 const Section = styled.section`
@@ -144,6 +145,12 @@ const SocialLinks = styled.div`
 
 const SocialImage = styled.img`
   cursor: pointer;
+  opacity: 0.6; /* Начальная прозрачность */
+  transition: opacity 0.3s ease; /* Плавное изменение прозрачности */
+
+  &:hover {
+    opacity: 1; /* Прозрачность при наведении */
+  }
 `;
 
 const Image = styled.img`
@@ -190,8 +197,8 @@ const Welcome = () => {
         </Box>
       </Container>
       <ImageBgdots className="img1" src={dots} />
-      <ImageBgdots className="img2" src={dots} />
-      <ImageBgdots className="img3" src={dots} />
+      <ImageBgdots className="img2" src={greenDots} />
+      <ImageBgdots className="img3" src={greenDots} />
       <ImageBgdots className="img4" src={dots} />
       {/*  */}
       <MobileImgDots className="img5" src={mobileDots} />

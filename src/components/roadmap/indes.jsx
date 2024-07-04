@@ -3,6 +3,10 @@ import styled from "styled-components";
 
 import juice from "../../assets/roadmap/juice.png";
 
+import dots from "../../assets/juiceDots.svg";
+import greenDots from "../../assets/juiceGreenDots.svg";
+import mobileDots from "../../assets/mobileDots.svg";
+
 const Section = styled.section`
   position: relative;
   min-height: 100vh;
@@ -16,6 +20,41 @@ const Section = styled.section`
 
   @media (max-width: 40em) {
     min-height: 50vh;
+  }
+
+  .img1 {
+    top: 25%;
+    left: 5%;
+  }
+
+  .img2 {
+    top: 65%;
+    left: 10%;
+  }
+
+  .img3 {
+    top: 20%;
+    right: 7%;
+  }
+
+  .img4 {
+    top: 70%;
+    right: 15%;
+  }
+
+  .img5 {
+    top: 40%;
+    right: 0;
+  }
+
+  .img6 {
+    top: 50%;
+    left: 5%;
+  }
+
+  .img7 {
+    top: 30%;
+    left: 6%;
   }
 `;
 
@@ -74,6 +113,7 @@ const Title = styled.h1`
   font-family: "Rubik Mono One", sans-serif;
   text-transform: uppercase;
   transform: rotate(350deg);
+  color: #0ac416;
 
   @media (max-width: 40em) {
     font-size: 37px;
@@ -127,6 +167,23 @@ const Image = styled.img`
   }
 `;
 
+const ImageBgdots = styled.img`
+  position: absolute;
+  @media (max-width: 64em) {
+    display: none;
+  }
+`;
+
+const MobileImgDots = styled.img`
+  /* display: none; */
+  /* width: 100%; */
+  position: absolute;
+  @media (max-width: 64em) {
+    position: absolute;
+    display: block;
+  }
+`;
+
 const RoadMap = () => {
   return (
     <Section>
@@ -149,6 +206,7 @@ const RoadMap = () => {
           <Image src={juice} />
         </Box>
       </Container>
+      <ImageBgdots className="img1" src={greenDots} />
     </Section>
   );
 };

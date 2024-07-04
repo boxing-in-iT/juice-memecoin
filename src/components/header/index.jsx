@@ -98,7 +98,7 @@ const MenuItems = styled.li`
     display: block;
     width: 0%;
     height: 2px;
-    background: #eb6413;
+    background: #0ac416;
     transition: width 0.3s ease;
   }
   &:hover::after {
@@ -112,29 +112,29 @@ const MenuItems = styled.li`
 `;
 
 const Button = styled.button`
-  background: #e91334;
-  border: 1px solid #000000;
+  background: #0ac416;
+  border: 1px solid #ffffff;
   border-radius: 7px;
   padding: 10px 20px;
   text-transform: uppercase;
   color: white;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: bold;
   width: 159px;
   height: 44px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
-
-  &:hover {
-    background: #d1102b;
-    transform: scale(1.05);
-  }
 
   @media (max-width: 64em) {
     font-size: 12px;
     padding: 0;
     font-family: "Rubik One", sans-serif;
     font-weight: 400;
+  }
+
+  &:hover {
+    background: #0fd61f;
+    transform: scale(1.1);
   }
 `;
 

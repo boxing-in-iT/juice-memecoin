@@ -109,6 +109,7 @@ const Title = styled.h1`
   font-weight: 400;
   text-transform: uppercase;
   transform: rotate(5deg);
+  color: #0ac416;
   font-family: "Rubik Mono One", sans-serif;
 
   /* margin-bottom: 1em; */
