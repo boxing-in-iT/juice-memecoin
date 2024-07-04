@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { keyframes } from "styled-components";
 
 import juice from "../../assets/juicenomics/juice.png";
 import copyIcon from "../../assets/Copy.svg";
@@ -127,8 +127,8 @@ const CopyButton = styled.button`
   height: 59px;
   border: none;
   border-radius: 18px;
-  background: #ffffff;
-  color: #ee7e3c;
+  background: ${(props) => (props.copied ? "#4CAF50" : "#ffffff")};
+  color: ${(props) => (props.copied ? "#ffffff" : "#ee7e3c")};
   font-size: 24px;
   font-weight: 600;
   font-family: "Rubik", sans-serif;
@@ -136,6 +136,7 @@ const CopyButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.3s, color 0.3s;
 
   display: flex;
   align-items: center;
@@ -157,11 +158,18 @@ const CopyButton = styled.button`
 `;
 
 const Juicenomics = () => {
+  const [copied, setCopied] = useState(false);
+
   const copyToClipboard = () => {
     const address = "RDficDZuhLo4NxZKMJJ9xfQ1yCY247k7UCPgzwKsoMC";
     navigator.clipboard
       .writeText(address)
-      .then(() => {})
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => {
+          setCopied(false);
+        }, 2000); // Сбрасываем состояние через 2 секунды
+      })
       .catch((err) => {
         console.error("Failed to copy: ", err);
       });
@@ -179,8 +187,8 @@ const Juicenomics = () => {
         </SubTitle>
         <SmartTitle>smart contract adress:</SmartTitle>
         <Address>RDficDZuhLo4NxZKMJJ9xfQ1yCY247k7UCPgzwKsoMC</Address>
-        <CopyButton onClick={copyToClipboard}>
-          Copy <img src={copyIcon} alt="copy icon" />
+        <CopyButton copied={copied} onClick={copyToClipboard}>
+          {copied ? "Copied!" : "Copy"} <img src={copyIcon} alt="copy icon" />
         </CopyButton>
       </Container>
       <BgImage src={juice} />
