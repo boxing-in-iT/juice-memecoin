@@ -23,21 +23,25 @@ const Section = styled.section`
   }
 
   .img1 {
+    width: 8%;
     top: 25%;
     left: 20%;
   }
 
   .img2 {
+    width: 8%;
     top: 50%;
     left: 30%;
   }
 
   .img3 {
+    width: 8%;
     top: 30%;
     right: 20%;
   }
 
   .img4 {
+    width: 8%;
     top: 50%;
     right: 30%;
   }
